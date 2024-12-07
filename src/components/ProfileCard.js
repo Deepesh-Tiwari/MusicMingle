@@ -9,9 +9,9 @@ export const ProfileCard = (props) => {
 
     const {name, pid, email, picture, age, location} = profdata;
     return (
-        <div className="prof-card">
-            <img className="prof-logo" alt="prof-logo" src= {picture}/>
-            <h4>NAME OF USER : {name}</h4>
+        <div className="w-[230px] p-2 m-2 shadow-md bg-blue-50 ml-3">
+            <img className="w-48" alt="prof-logo" src= {picture}/>
+            <h4 className="font-semibold">NAME OF USER : {name}</h4>
             {/* <h4>{pid}</h4> */}
             <h4>AGE OF USER : {age}</h4>
             <h4>EMAIL OF USER : {email}</h4>

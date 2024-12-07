@@ -26,13 +26,13 @@ const Body = () => {
     return listofProfiles.length === 0 ? <Shimmer /> : (
         <div className= "body">
             <div className="filter">
-            <div className="search-box">
+            <div className="search-box p-2 bg-blue-50 m-2">
                 <input type="text" className="search" value={searchtext} 
                 onChange={(e) => {
                     setsearchtext(e.target.value);
                 }}
                 />
-                <button onClick={() => {
+                <button className="p-1  bg-pink-200 hover:bg-pink-300 m-1 rounded-lg" onClick={() => {
                     console.log(searchtext);
                     const filterdprofiles = listofProfiles.filter(
                         (profile) => profile.name.toLowerCase().includes(searchtext)
@@ -40,8 +40,8 @@ const Body = () => {
                     setlistofProfiles(filterdprofiles);
                 }}>Search</button>
             </div>
-            <div className="my-prof">MY PROFILE</div>
-                <button className="filter-btn" onClick={() => {
+            {/* <div className="my-prof">MY PROFILE</div> */}
+                <button className="p-3 bg-pink-200 hover:bg-pink-300 m-2 rounded-lg" onClick={() => {
                     const filterdprofiles = listofProfiles.filter(
                         (profile) => profile.age > 30
                     );
@@ -49,7 +49,7 @@ const Body = () => {
                     console.log("Button clicked")
                 }}>best matches</button>
             </div>
-            <div className="prof-container">
+            <div className="flex flex-wrap">
                 {
                     listofProfiles.map(profile => (<Link to={"/profile/:123"}>
                     <ProfileCard key = {profile.pid} profdata={profile}/></Link>

@@ -8,12 +8,12 @@ const Header = () => {
 
     const [btnnamereact, setbtnnamereact] = useState("Login");
     return (
-        <div className="header">
-            <div className="logo">
+        <div className="flex justify-between bg-blue-50 shadow-lg">
+            <div className="w-24 p-1">
                 <img src = {APP_LOGO}/>
             </div>
-            <div className="navitems">
-                <ul>
+            <div className="w-3/5"> 
+                <ul className="flex py-8 px-1 justify-between">
                     <li>
                         <Link to="/">Home</Link>
                     </li>
