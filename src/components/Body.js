@@ -1,11 +1,12 @@
 import {ProfileCard} from "./ProfileCard"
 import { profobj } from "../utils/mockdata";
-import {useState , useEffect} from "react";
+import {useState , useEffect, useContext} from "react";
 import Shimmer from "./Shimmer";
 import { PROF_IMG } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useListOfProfiles from "../utils/useListOfProfiles";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/userContext";
 
 
 const Body = () => {
@@ -16,6 +17,8 @@ const Body = () => {
     const [searchtext, setsearchtext] = useState("");
 
     const isOnline = useOnline();
+
+    const {user, setUser} = useContext(UserContext);
 
     if(!isOnline){
         return(
@@ -39,6 +42,24 @@ const Body = () => {
                     );
                     setlistofProfiles(filterdprofiles);
                 }}>Search</button>
+
+                <input type="text" className="p-2 m-2" 
+                onChange={(e) => {
+                    setUser({
+                        ...user,
+                        name : e.target.value
+                    });
+                }}
+                />
+
+                <input type="text" className="p-2 m-2"  
+                onChange={(e) => {
+                    setUser({
+                        ...user,
+                        email : e.target.value
+                    });
+                }}
+                />
             </div>
             {/* <div className="my-prof">MY PROFILE</div> */}
                 <button className="p-3 bg-pink-200 hover:bg-pink-300 m-2 rounded-lg" onClick={() => {
